@@ -1,5 +1,3 @@
-theme: jekyll-theme-cayman
+remote_theme: jekyll-theme-cayman
 title: Stimulus Write-up
 description: A write-up of the reasoning behind choosing Stimulus and our first attempt at using the framework
-baseurl: "/"
-url: "https://sensei100.github.io/stimulus_writeup/"
