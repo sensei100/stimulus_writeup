@@ -36,11 +36,11 @@
             <p>Stimulus is a new, lightweight Javascript framework created by Basecamp. What sets it apart from other Javascript frameworks is that it does not take over the entire front-end of your project. It is designed to work with your existing HTML by connecting DOM elements with Javascript objects. Check out the <a href="https://stimulusjs.org/handbook/introduction">Stimulus Handbook</a> to learn more about why Basecamp developed the framework and how it works.</p>
 
             <h3>Why We Chose Stimulus</h3>
-            <p>We didn't want to go with one of the larger frameworks that would overwhelm the project and add to its size.  We were looking for something smaller that would work to generate views of the data that we are receiving from our api. Another advantage is that it designed to work with turbolinks.</p>
+            <p>We didn't want to go with one of the larger frameworks that would overwhelm the project and add to its size.  We were looking for something smaller that would work to generate views of the data that we are receiving from our API. Another advantage is that it designed to work with turbolinks.</p>
 
-            <p>Stimulus appealed to us because of the consistent conventions and the readability of the code. We currently have a javascript file for api calls that is getting very complex and difficult to read as our application grows. Stimulus gives us the conventinos we need so that anyone on the team is able to read the code and see what is happening without going up a chain of Javascript functions trying to see where data is being generated or called.</p>
+            <p>Stimulus appealed to us because of the consistent conventions and the readability of the code. We currently have a javascript file for API calls that is getting very complex and difficult to read as our application grows. Stimulus gives us the conventinos we need so that anyone on the team is able to read the code and see what is happening without going up a chain of Javascript functions trying to see where data is being generated or called.</p>
 
-            <p>We used Stimulus to display availability data for our search and discovery library catalog.  This information is provided through a third-party api and was previously generated in an iframe.  We wanted to be ablt to control the display of information, as well  as which data was being given to the user.  We created a table in our HTML templates and used Stimulus to fetch and display the information.</p>
+            <p>We used Stimulus to display availability data for our search and discovery library catalog.  This information is provided through a third-party API and was previously generated in an iframe.  We wanted to be ablt to control the display of information, as well  as which data was being given to the user.  We created a table in our HTML templates and used Stimulus to fetch and display the information.</p>
 
             <h3>Stimulus Basics</h3>
             <p>Stimulus is built around three main components: the data-controller, data-targets, and data_actions. The data-controller acts as a connector between HTML and Javascript.</p>
@@ -60,7 +60,25 @@
             <p>The availability controller is attached to the parent <code>div</code> element. We can now assign targets or actions within that controller to the child elements. Data-target attributes allow you to find elements, while data-actions describe how events on a page should trigger a controller method. </p>
 
             <h3>Getting Started</h3>
-            <p></p>
+            <p>Getting the necessary components installed was by far the biggest challenge that we faced when implementing Stimpulus.  To add Stimpulus to a Rails application, the recommended path is to use <a href="https://github.com/rails/webpacker">Webpacker</a>. After adding <code>gem 'webpacker', '~> 3.4'</code> to your Gemfile and running <code>bundle install</code>, you will need to install Webpacker by running <code>bundle exec rails webpacker:install</code>.  This was the first major problem. In order to use live code reloading, you will need to run <code>./bin/webpack-dev-server</code> in a terminal separate from the one running your rails server.  The latest webpack-dev-server would not work for me. The solution proposed in this <a href="https://github.com/rails/webpacker/issues/1303">github issue</a> was to downgrade the version for the webpack-dev-server in package.json. This is the configuration that worked for us:</p>
+
+<pre>
+  <code>
+  {
+    "dependencies": {
+      "@rails/webpacker": "^3.3.1",
+      "stimulus": "^1.0.1"
+    },
+    "devDependencies": {
+      "webpack-cli": "^2.0.11",
+      "webpack-dev-server": "^2.11.1"
+    }
+  }
+  </code>
+</pre>
+
+            <p>You will also need to install node and <a href="https://yarnpkg.com/en/">yarn</a>. If you have not already installed node, then yarn will include it for you.  I had more issues with getting yarn/node to work and had to install/uninstall several times. I eneded up having sucess with using homebrew for installation.</p>
+
 
 
             <footer class="site-footer">
