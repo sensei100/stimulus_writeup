@@ -77,9 +77,51 @@
   </code>
 </pre>
 
-            <p>You will also need to install node and <a href="https://yarnpkg.com/en/">yarn</a>. If you have not already installed node, then yarn will include it for you.  I had more issues with getting yarn/node to work and had to install/uninstall several times. I eneded up having sucess with using homebrew for installation.</p>
+            <p>You will also need to install node and <a href="https://yarnpkg.com/en/">yarn</a>. If you have not already installed node, then yarn will include it for you.  I had more issues with getting yarn/node to work and had to install/uninstall several times. I ended up having success with using homebrew for installation.</p>
 
+            <p>Stimulus provides installation instructions for different build systems in their <a href="https://stimulusjs.org/handbook/installing">handbook</a>.  I also found this <a href="https://blog.supersetinc.com/2018/01/11/well-factored-javascript-server-rendered-applications-using-stimulus/">blog</a> helpful in getting started. One of the issues that I faced when I had problems was the "newness" of the framework.  There isn't a lot of documentation out there yet.  I found it really helpful to read through the <a href="https://github.com/stimulusjs/stimulus/issues?page=2&q=is%3Aissue+is%3Aclosed">issues</a> on the Stimulus github page and reading conversations in <a href="https://discourse.stimulusjs.org">Stimulus discourse</a>.</p>
 
+            <h3>Overall Expereince</h3>
+            <p>After using Stimulus in our application, I am interested in experimenting and finding other ways to use it.  I really liked how easy it was to set up a data controller and assign data-targets.</p>
+
+            <h4>Data-controllers</h4>
+            <p>Data-controllers are usually assigned to a parent element and can be reused. It is also easy to have page-specific javascript by creating a different controller for each view. I ended up using two controllers because I needed data to respond to click events on one page, but display on page load elsewhere.</p>
+
+            <h4>Data-actions</h4>
+            <p>Data-actions can be assigned to any type of DOM element.  The descriptor is written as <code>data-action="click->availability#item"</code> This descriptor starts with the event name, followed by the controller identifier and method name, separated by a #. One of the best features about data-action identifiers is that there are default actions for different elements.  For example, a button automatically defaults to a click event, so thad descriptor can be shortened to <code>data-action="availability#item"</code>.</p>
+
+            <p>Data-actions did not always work as expected.  I thought that I would be able to use any DOM event in a descriptor, but I could not get some of them to work.  I tried to use load and ajax:success, but nothing happened when I used them. I was able to work around it through the use of life-cycle callback methods.  You can use initialize invoke a method once, when a page loads.  You can also use connect to invoke a method anytime the controller is connected to the DOM. Using the callback methods is probably the preferred way of implementation, but I would still like to know why the other events would not trigger the action.</p>
+
+            <h4>Data-targets</h4>
+            <p>Data-targets were very easy-to-use and made it very easy to make changes like adding a class, or displaying an element. In the controller code below, you can see that we created three different targets and then used them in different ways.</p>
+
+<pre>
+  <code>
+    import { Controller } from "stimulus"
+
+    export default class extends Controller {
+      static targets = [ "panel", "button", "spinner" ]
+
+      item() {
+        this.buttonTarget.classList.toggle("collapsed");
+
+        if (!this.buttonTarget.classList.contains("clicked")) {
+          $(this.spinnerTarget).show();
+          fetch(this.data.get("url"))
+            .then(response => response.text())
+            .then(html => {
+              this.spinnerTarget.remove();
+              this.panelTarget.innerHTML = html
+              this.buttonTarget.classList.add("clicked")
+          })
+        }
+      }
+    }
+  </code>
+</pre>
+
+            <h3>Final Thoughts</h3>
+            <p>Our team is excited about Stimulus and we are looking forward to experiementing with it in different ways in our application.  Our project uses <a href="https://github.com/projectblacklight/blacklight">Blacklight</a>, which is very HTML-driven.  The fact that state is managed in the DOM and DOM elements are manipulated with Stimulus may enable us to better integrate Javascript with some our Blacklight content.</p>
 
             <footer class="site-footer">
 
