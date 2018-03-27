@@ -41,7 +41,10 @@
             <p>Stimulus appealed to us because of the consistent conventions and the readability of the code. We currently have a javascript file for api calls that is getting very complex and difficult to read as our application grows. Stimulus gives us the conventinos we need so that anyone on the team is able to read the code and see what is happening without going up a chain of Javascript functions trying to see where data is being generated or called.</p>
 
             <h3>Stimulus Basics</h3>
-            <p>Stimulus is built around three main components: the data-controller, data-targets, and data_actions. The data-controller acts as a connector between HTML and Javascript. </p>
+            <p>Stimulus is built around three main components: the data-controller, data-targets, and data_actions. The data-controller acts as a connector between HTML and Javascript.</p>
+
+            <p>The snippet below demonstrates the simplicity of Stimulus code.  It maintains a separation of concerns while attaching itself to existing HTML. Stimulus is intended to manipulate existing HTML.  While it can be used to create DOM elements, that is not the main purpose.</p>
+
 <pre>
   <code>
     &lt;div data-controller="availability" data-availability-url="&lt;%= item_url(document.id) %&gt;"&gt;
@@ -51,6 +54,8 @@
     &lt;/div&gt;
   </code>
 </pre>
+
+            <p>The availability controller is attached to the parent <code>div</code> element. We can now assign targets or actions within that controller to the child elements. Data-target attributes allow you to find elements, while data-actions describe how events on a page should trigger a controller method. </p>
 
 
             <footer class="site-footer">
