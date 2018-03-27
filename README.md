@@ -1,3 +1,0 @@
-# Stimulus Write-up
-
-
