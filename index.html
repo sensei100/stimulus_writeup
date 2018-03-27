@@ -9,7 +9,10 @@
       <meta property="og:locale" content="en_US" />
       <meta name="description" content="A write-up of the reasoning behind choosing Stimulus and our first attempt at using the framework" />
       <meta property="og:description" content="A write-up of the reasoning behind choosing Stimulus and our first attempt at using the framework" />
-      <link rel="canonical" href="http://localhost:4000/" />
+      <!-- For styles with static names... -->
+      <link href="{{ "/assets/css/style.css" | relative_url }}" rel="stylesheet">
+      <!-- For documents/pages whose URLs can change... -->
+      [{{ page.title }}]("{{ page.url | relative_url }}")
       <meta property="og:url" content="http://localhost:4000/" />
       <meta property="og:site_name" content="Stimulus Write-up" />
       <script type="application/ld+json">
