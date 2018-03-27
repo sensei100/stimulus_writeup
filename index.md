@@ -1,1 +1,1 @@
-Temple University's First use of Stimulus
+Stimulus Write-up
