@@ -42,15 +42,15 @@
 
             <h3>Stimulus Basics</h3>
             <p>Stimulus is built around three main components: the data-controller, data-targets, and data_actions. The data-controller acts as a connector between HTML and Javascript. </p>
-
-            <code>
-              <div data-controller="availability" data-availability-url="<%= item_url(document.id) %>">
-                <button data-action="availability#item" data-availability-ids="<%= document.alma_availability_mms_ids.join(',') %>" class="btn btn-sm btn-default" data-toggle="collapse" data-target= availability.button">
-                  <span role="spin" aria-expanded="false">Loading...</span>
-                </button>
-              </div>
-
-            </code>
+            <pre>
+              <code>
+                <div data-controller="availability" data-availability-url="<%= item_url(document.id) %>">
+                  <button data-action="availability#item" class="btn btn-sm btn-default"  data-target="availability.button">
+                    <span role="spin" aria-expanded="false">Loading...</span>
+                  </button>
+                </div>
+              </code>
+            </pre>
 
 
             <footer class="site-footer">

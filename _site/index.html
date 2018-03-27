@@ -36,7 +36,21 @@
             <p>Stimulus is a new, lightweight Javascript framework created by Basecamp. What sets it apart from other Javascript frameworks is that it does not take over the entire front-end of your project. It is designed to work with your existing HTML by connecting DOM elements with Javascript objects. Check out the <a href="https://stimulusjs.org/handbook/introduction">Stimulus Handbook</a> to learn more about why Basecamp developed the framework and how it works.</p>
 
             <h3>Why We Chose Stimulus</h3>
-            <p></p>
+            <p>We didn't want to go with one of the larger frameworks that would overwhelm the project and add to its size.  We were looking for something smaller that would work to generate views of the data that we are receiving from our api. Another advantage is that it designed to work with turbolinks.</p>
+
+            <p>Stimulus appealed to us because of the consistent conventions and the readability of the code. We currently have a javascript file for api calls that is getting very complex and difficult to read as our application grows. Stimulus gives us the conventinos we need so that anyone on the team is able to read the code and see what is happening without going up a chain of Javascript functions trying to see where data is being generated or called.</p>
+
+            <h3>Stimulus Basics</h3>
+            <p>Stimulus is built around three main components: the data-controller, data-targets, and data_actions. The data-controller acts as a connector between HTML and Javascript. </p>
+            <pre>
+              <code>
+                <div data-controller="availability" data-availability-url="<%= item_url(document.id) %>">
+                  <button data-action="availability#item" class="btn btn-sm btn-default"  data-target="availability.button">
+                    <span role="spin" aria-expanded="false">Loading...</span>
+                  </button>
+                </div>
+              </code>
+            </pre>
 
 
             <footer class="site-footer">
