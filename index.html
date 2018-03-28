@@ -38,9 +38,9 @@
             <h3>Why We Chose Stimulus</h3>
             <p>We didn't want to go with one of the larger frameworks that would overwhelm the project and add to its size.  We were looking for something smaller that would work to generate views of the data that we are receiving from our API. Another advantage is that it designed to work with turbolinks.</p>
 
-            <p>Stimulus appealed to us because of the consistent conventions and the readability of the code. We currently have a javascript file for API calls that is getting very complex and difficult to read as our application grows. Stimulus gives us the conventinos we need so that anyone on the team is able to read the code and see what is happening without going up a chain of Javascript functions trying to see where data is being generated or called.</p>
+            <p>Stimulus appealed to us because of the consistent conventions and the readability of the code. We currently have a javascript file for API calls that is getting very complex and difficult to read as our application grows. Stimulus gives us the conventions we need so that anyone on the team is able to read the code and see what is happening without going up a chain of Javascript functions trying to see where data is being generated or called.</p>
 
-            <p>We used Stimulus to display availability data for our search and discovery library catalog.  This information is provided through a third-party API and was previously generated in an iframe.  We wanted to be ablt to control the display of information, as well  as which data was being given to the user.  We created a table in our HTML templates and used Stimulus to fetch and display the information.</p>
+            <p>We used Stimulus to display availability data for our search and discovery library catalog.  This information is provided through a third-party API and was previously generated in an iframe.  We wanted to be able to control the display of information, as well  as which data was being given to the user.  We created a table in our HTML templates and used Stimulus to fetch and display the information.</p>
 
             <h3>Stimulus Basics</h3>
             <p>Stimulus is built around three main components: the data-controller, data-targets, and data_actions. The data-controller acts as a connector between HTML and Javascript.</p>
@@ -60,7 +60,7 @@
             <p>The availability controller is attached to the parent <code>div</code> element. We can now assign targets or actions within that controller to the child elements. Data-target attributes allow you to find elements, while data-actions describe how events on a page should trigger a controller method. </p>
 
             <h3>Getting Started</h3>
-            <p>Getting the necessary components installed was by far the biggest challenge that we faced when implementing Stimpulus.  To add Stimpulus to a Rails application, the recommended path is to use <a href="https://github.com/rails/webpacker">Webpacker</a>. After adding <code>gem 'webpacker', '~> 3.4'</code> to your Gemfile and running <code>bundle install</code>, you will need to install Webpacker by running <code>bundle exec rails webpacker:install</code>.  This was the first major problem. In order to use live code reloading, you will need to run <code>./bin/webpack-dev-server</code> in a terminal separate from the one running your rails server.  The latest webpack-dev-server would not work for me. The solution proposed in this <a href="https://github.com/rails/webpacker/issues/1303">github issue</a> was to downgrade the version for the webpack-dev-server in package.json. This is the configuration that worked for us:</p>
+            <p>Getting the necessary components installed was by far the biggest challenge that we faced when implementing Stimulus.  To add Stimulus to a Rails application, the recommended path is to use <a href="https://github.com/rails/webpacker">Webpacker</a>. After adding <code>gem 'webpacker', '~> 3.4'</code> to your Gemfile and running <code>bundle install</code>, you will need to install Webpacker by running <code>bundle exec rails webpacker:install</code>.  This was the first major problem. In order to use live code reloading, you will need to run <code>./bin/webpack-dev-server</code> in a terminal separate from the one running your rails server.  The latest webpack-dev-server would not work for me. The solution proposed in this <a href="https://github.com/rails/webpacker/issues/1303">github issue</a> was to downgrade the version for the webpack-dev-server in package.json. This is the configuration that worked for us:</p>
 
 <pre>
   <code>
@@ -81,7 +81,7 @@
 
             <p>Stimulus provides installation instructions for different build systems in their <a href="https://stimulusjs.org/handbook/installing">handbook</a>.  I also found this <a href="https://blog.supersetinc.com/2018/01/11/well-factored-javascript-server-rendered-applications-using-stimulus/">blog</a> helpful in getting started. One of the issues that I faced when I had problems was the "newness" of the framework.  There isn't a lot of documentation out there yet.  I found it really helpful to read through the <a href="https://github.com/stimulusjs/stimulus/issues?page=2&q=is%3Aissue+is%3Aclosed">issues</a> on the Stimulus github page and reading conversations in <a href="https://discourse.stimulusjs.org">Stimulus discourse</a>.</p>
 
-            <h3>Overall Expereince</h3>
+            <h3>Overall Experience</h3>
             <p>After using Stimulus in our application, I am interested in experimenting and finding other ways to use it.  I really liked how easy it was to set up a data controller and assign data-targets.</p>
 
             <h4>Data-controllers</h4>
@@ -121,7 +121,7 @@
 </pre>
 
             <h3>Final Thoughts</h3>
-            <p>Our team is excited about Stimulus and we are looking forward to experiementing with it in different ways in our application.  Our project uses <a href="https://github.com/projectblacklight/blacklight">Blacklight</a>, which is very HTML-driven.  The fact that state is managed in the DOM and DOM elements are manipulated with Stimulus may enable us to better integrate Javascript with some our Blacklight content.</p>
+            <p>Our team is excited about Stimulus and we are looking forward to experimenting with it in different ways in our application.  Our project uses <a href="https://github.com/projectblacklight/blacklight">Blacklight</a>, which is very HTML-driven.  The fact that state is managed in the DOM and DOM elements are manipulated with Stimulus may enable us to better integrate Javascript with some our Blacklight content.</p>
 
             <footer class="site-footer">
 
